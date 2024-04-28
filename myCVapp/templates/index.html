@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% block content %} 
+{% load static %}
 <div class="window">
     <div class="title-bar">
       <div class="title-bar-text">
@@ -20,6 +21,11 @@
             <!--<td valign="top" > -->
             
                 <table style="width:100%;" class="intable">
+                    <tr>
+                        <td>
+                            <img src="{% static 'cvImage.png' %}" style="max-width: 200px;margin: 10px 0">
+                        </td>
+                    </tr>
                     <tr>
                         <td class="contact-data">
                             <h2>Kontakt</h2>
