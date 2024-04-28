@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{title}}</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/98.css">
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+  </head>
+  <body>
+    <div class="window nav-bar">
+      <form action="https://github.com/osieks"><input type="submit" value="GitHub" /></form>
+      <form action="https://www.linkedin.com/in/mateusz-dzie%C5%BCok-9318bb244/"><input type="submit" value="LinkedIn" /></form>
+      <form action="http://mdziezok.ddns.net:8000/"><input type="submit" value="This page project" /></form>
+      <form action="/static/cv_2024.pdf"><input type="submit" value="CV in PDF" /></form>
+    </div>
+    <div class="pageContent">
+    {% block content %} 
+    {% endblock %}
+    </div>
+  </body>
+</html>

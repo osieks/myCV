@@ -1,0 +1,104 @@
+h1              { font-size: 2em; margin: 10px 0}
+h2              { font-size: 1.5em; margin: 10px 0 }
+h3              { font-size: 1.17em; margin: 10px 0 }
+h4              { font-size: 1.1em; margin: 10px 0 }
+h5              { font-size: .83em; margin: 10px 0 }
+h6              { font-size: .75em; margin: 10px 0 }
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;    
+  display: inline-block;
+  table-layout:fixed;
+  background-color: rgba(0,0,0,0.0);
+}
+.intable td, .intable th {
+  white-space: normal !important;
+  word-break: normal !important;
+  word-wrap: break-word !important;
+}
+table td:last-child {
+  width: 100%;
+}
+.window{
+  max-width: 1000px;
+  margin: auto 0;
+}
+.pageContent{
+  display: flex;
+  justify-content: center;
+  padding-top: 50px;
+}
+.tree-view li{
+  font-size: 14px;
+  color: #222;
+}
+.tree-view summary{
+  font-size: 16px;
+}
+.forms > form{
+  display: inline-block;
+  margin:5px;
+}
+
+.forms form:last-child{
+  margin-bottom: 15px;
+}
+
+.nav-bar{
+  justify-content: left;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  right:0;
+  width: 100%;
+  max-width: none;
+  display: flex;
+}
+
+.certificates tr td{
+  border: 1px solid #ccc;
+  padding: 5px;
+}
+.certificates tr td:first-child{
+  width: 60%;
+}
+.certificates tr td:nth-child(2){
+  width: 15%;
+}
+.certificates tr td:last-child{
+  
+  width: 25%;
+}
+.contact-data div{
+  width: 100%;
+  max-width: 200px;
+}
+.container
+  {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+  }
+
+  @media only screen and (max-width: 760px) {
+    .container
+    {
+      display: flex;
+      flex-direction: column-reverse;
+    }
+}
+
+.container .left
+{
+  flex: 30%;
+}
+.container .right
+{
+  flex: 70%;
+}

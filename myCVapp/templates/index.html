@@ -1,0 +1,197 @@
+{% extends "base.html" %}
+{% block content %} 
+<div class="window">
+    <div class="title-bar">
+      <div class="title-bar-text">
+        <h2>Mateusz Dzieżok</h2>
+      </div>
+
+      <div class="title-bar-controls">
+        <button aria-label="Minimize"></button>
+        <button aria-label="Maximize"></button>
+        <button aria-label="Close"></button>
+      </div>
+    </div>
+    <div class="window-body">
+    <!--<table border="1" style="width:100% ;vertical-align:top;border-collapse: collapse;" class="window">-->
+    <div class="container" style = "vertical-align:top;">
+        <!--<tr style = "width:100%"> -->
+            <div class="left">
+            <!--<td valign="top" > -->
+            
+                <table style="width:100%;" class="intable">
+                    <tr>
+                        <td class="contact-data">
+                            <h2>Kontakt</h2>
+                            <div class="field-row-stacked">
+                                <label for="email">Email</label>
+                                <input id="email" type="email" value="mat.dziezok@gmail.com" readonly/>
+                            </div>
+                            <div class="field-row-stacked">
+                                <label for="pass">Password</label>
+                                <input id="pass" type="password" value="secret" readonly/>
+                            </div>
+                            <div class="field-row-stacked">
+                                <label for="phone">Telefon</label>
+                                <input id="phone" type="number" value="739980338" readonly/>
+                            </div>
+                            <div class="field-row-stacked">
+                                <label for="birth">Data urodzenia</label>
+                                <input id="birth" type="date" value="1999-04-20" readonly/>
+                            </div>
+                            <div class="field-row-stacked">
+                                <label for="home">Miejscowość</label>
+                                <input id="home" type="text" value="Knurów" readonly/>
+                            </div>
+                            <br>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h2>Umiejętności</h2>
+                            {% for skill in skill %}
+                            <div class="field-row">
+                                <input checked type="checkbox" id="example{{forloop.counter}}">
+                                <label for="example{{forloop.counter}}">{{ skill.name }} <!-- - {{ skill.level }} --></label>
+                            </div>
+                            {% endfor %}
+                            <br>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h2>Języki</h2>
+                            <table>
+                                <tr><th>Język</th><th>Poziom</th></tr>
+                            {% for lang in language %}
+                            <tr>
+                                <td>{{ lang.name }} <!-- - {{ lang.level }} --> </td>
+                                <td>
+                                    <select autocomplete="off" >
+                                        <option {% if lang.level == "A1" %}selected='selected'{% endif %}>A1 - Begginer</option>
+                                        <option {% if lang.level == "A2" %}selected='selected'{% endif %}>A2 - Elementary</option>
+                                        <option {% if lang.level == "B1" %}selected='selected'{% endif %}>B1 - Intermediate</option>
+                                        <option {% if lang.level == "B2" %}selected='selected'{% endif %}>B2 - Upper Intermediate</option>
+                                        <option {% if lang.level == "C1" %}selected='selected'{% endif %}>C1 - Advanced</option>
+                                        <option {% if lang.level == "C2" %}selected='selected'{% endif %}>C2 - Proficient</option>
+                                        <option {% if lang.level == "Native" or lang.level == "ojczysty" %}selected='selected'{% endif %}>Native</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                            </table>
+                            <br>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="forms">
+                            <h2>Linki</h2>
+                            <form action="https://github.com/osieks"><input type="submit" value="GitHub" /></form>
+                            <form action="https://www.linkedin.com/in/mateusz-dzie%C5%BCok-9318bb244/"><input type="submit" value="LinkedIn" /></form>
+                            <br>
+                            <form action="http://mdziezok.ddns.net:8000/"><input type="submit" value="This page" /></form>
+                            <form action="https://github.com/osieks"><input type="submit" value="CV in PDF" /></form>
+                        </td>
+                    </tr>
+                </table>
+            <!--</td> -->
+            </div>
+            <div class="right">
+            <!-- <td valign="top" style = "width:100%"> -->
+                <table class="intable">  
+                    <tr>
+                        <td>      
+                            <h1 style="margin: 10px 0;"> Doświadczenie zawodowe </h1>
+                        </td>
+                    </tr>
+                    {% for exp in experience %}
+                    <tr>
+                        <td>
+                                <div class="window job">
+                                    <div class="title-bar">
+                                        <div class="title-bar-text">{{ exp.title }}</div>
+                                    </div>
+                                    <div class="window-body">
+                                    {{ exp.description }}
+                                    </div>
+                                    <div class="status-bar">
+                                        <p class="status-bar-field">{{ exp.company }}</p>
+                                        <p class="status-bar-field">{{ exp.location }}</p>
+                                        <p class="status-bar-field">{{ exp.start_date }} - {{ exp.end_date }}</p>
+                                    </div>
+                                    </div>
+                                    <br>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                    <tr>
+                        <td>
+                            <h1> Wykształcenie </h1>
+                            <ul ul class="tree-view">
+                                {% for edu in education %}
+                                    <li class="tree-view-item">
+                                        <details open>
+                                            <summary style="color: purple">{{ edu.title }}</summary>
+                                        <ul>
+                                            <li>{{ edu.description }}</li>
+                                            <li>
+                                                <details open>
+                                                    <summary>Czas</summary>
+                                                    <ul>
+                                                        <li>od: {{ edu.start_date }}</li>
+                                                        <li>do: {{ edu.end_date }}</li>
+                                                    </ul>
+                                        </ul>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h1> Szkolenia, kursy, certyfikaty </h1>
+                            <div class="sunken-panel" style="height: 250px; width: 100%;">
+                                <table class="interactive certificates">
+                                <thead>
+                                    <tr>
+                                    <th>Name</th>
+                                    <th>Date</th>
+                                    <th>Description</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for cert in certificate %}
+                                    <tr>
+                                    <td>{{ cert.name }}</td>
+                                    <td>{{ cert.date }}</td>
+                                    <td>{{ cert.description }}</td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                                </table>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h1> Zainteresowania </h1>
+                            <div class="field-row-stacked" style="width: 50%; min-width: 300px">
+                                <label for="text20">Additional notes</label>
+                                <textarea id="text20" rows="8">
+                                {% for int in interest %} 
+                                - {{ int.name }},{% endfor %}
+                                </textarea>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            <!--</td> -->
+            </div
+        </tr>
+    <!--</table>--> 
+    </div>
+
+            
+{% endblock %}
+</div>
+</div>
