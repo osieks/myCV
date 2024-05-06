@@ -55,7 +55,7 @@ class Certificate(models.Model):
     date = models.DateField()
     description = models.TextField()
     
-    ordering = ['-date']
+    ordering = ['date']
     
     def __str__(self):
         return self.name
