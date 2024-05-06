@@ -124,7 +124,7 @@
                                         <p class="status-bar-field">{{ exp.company }}</p>
                                         <p class="status-bar-field">{{ exp.location }}</p>
                                         <p class="status-bar-field">{{ exp.start_date }} - {% if exp.end_date|date:"Y-m-d" < "1900-01-01" %}
-                                            current
+                                            currently
                                         {% else %}
                                             {{ exp.end_date }}
                                         {% endif %}
