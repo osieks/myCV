@@ -8,13 +8,13 @@ def index(request):
     context ={}
     edu = Education.objects.all()
     context['education'] = edu
-    exp = Experience.objects.all()
+    exp = Experience.objects.order_by('-end_date')
     context['experience'] = exp
-    cert = Certificate.objects.all()
+    cert = Certificate.objects.order_by('-date')
     context['certificate'] = cert
     int = Interest.objects.all()
     context['interest'] = int
-    skill = Skill.objects.all()
+    skill = Skill.objects.order_by('-level')
     context['skill'] = skill
     lang = Language.objects.all()
     context['language'] = lang
