@@ -9,5 +9,5 @@ services:
       - "8000:8000"
     volumes:
       - .:/app
-    enviroment:
+    environment:
       - PYTHONUNBUFFERED=1

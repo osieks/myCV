@@ -9,3 +9,9 @@ to run this Dockerfile
 docker build -t my-django-app .
 docker run -d -p 8000:8000 --restart always my-django-app
 ```
+
+or do
+
+```bask
+docker compose up --build -d
+```
