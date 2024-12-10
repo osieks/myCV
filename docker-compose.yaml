@@ -11,3 +11,9 @@ services:
       - .:/app
     environment:
       - PYTHONUNBUFFERED=1
+    networks:
+      - shared-network
+
+networks:
+  shared-network:
+    driver: bridge
